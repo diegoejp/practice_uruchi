@@ -17,6 +17,9 @@ public class PracticoProgramacionJava {
             System.out.println("3.- Si alguno es Par");
             System.out.println("4.- Compara 2 palabras");
             System.out.println("5.- Es Capiúca");
+            System.out.println("6.- Es menor a que b");
+            System.out.println("7.- A*B = A/C ?: ");
+            System.out.println("8.- Comparar arreglos");
             System.out.println("Preciona 0 para Salir");
 
             opt1 = in.nextInt();
@@ -39,6 +42,15 @@ public class PracticoProgramacionJava {
                     break;
                 case 5:
                     System.out.println("Tu numero es Capicúa: " + esCapicua());
+                    break;
+                case 6:
+                    System.out.println("Tu numero es menor: " +esMenor());
+                    break;
+                case 7:
+                    System.out.println("a*b = a/b : "+aPorB());
+                    break;
+                case 8:
+                    System.out.println("Tu arreglo contiene 2 = al menos: "+compararArreglos());
                     break;
             }
 
@@ -144,5 +156,56 @@ public class PracticoProgramacionJava {
         }else state =false;
 
         return state;
+    }
+    public static boolean esMenor(){
+        boolean state = false;
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("Ingresa numero 1");
+        int num1 = in.nextInt();
+        System.out.println("Ingresa numero 1");
+        int num2 = in.nextInt();
+        if(num1<num2){
+            state=true;
+        }else if (num1>num2){
+            state=false;
+        }else{
+            state=false;
+            System.out.println("Tus números son iguales");
+        }
+
+        return state;
+    }
+
+    public static boolean compararArreglos(){
+        int arr1[] = {1,2,4,5};
+        int arr2[] = {1,3,6,7};
+        int aux=0;
+        boolean state = false;
+
+        for (int i = 0; i<arr1.length; i++){
+            for (int j = 0; j<arr2.length; j++){
+                if(arr1[i] == arr2[j]){
+                    aux ++;
+                    if(aux >= 2){
+                        state = true;
+                    }
+                }
+            }
+        }
+        return  state;
+    }
+    public static boolean aPorB(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Ingresa n° 1");
+        int num1 = in.nextInt();
+        System.out.println("Ingresa n° 1");
+        int num2 = in.nextInt();
+
+        int resultadoM = num1*num2;
+        int resultadoD = num1/num2;
+        if(resultadoM==resultadoD){
+            return true;
+        }else return false;
     }
 }
