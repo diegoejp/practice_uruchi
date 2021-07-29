@@ -127,19 +127,22 @@ public class PracticoProgramacionJava {
 
     public static boolean esCapicua() {
         Scanner in = new Scanner(System.in);
-        boolean state = false;
+        boolean state;
         String strReverse = "";
         int numReverse = 0;
         System.out.println("Ingresa un entero");
         int num = in.nextInt();
         String num2 = Integer.toString(num);
-        for (int i = 0; i < num2.length(); i++) {
+        for (int i = num2.length()-1; i >= 0; i--) {
+
             strReverse += num2.charAt(i);
+            System.out.println(num2.charAt(i));
         }
         numReverse = Integer.parseInt(strReverse);
-        if (num == num) {
+        if (num == numReverse) {
             state = true;
-        }
+        }else state =false;
+
         return state;
     }
 }
